@@ -1,0 +1,14 @@
+.app-list{
+    margin-top: 30px;
+    background-color: #3d5a99;
+    border-radius: 4px;
+    box-shadow: 15px 15px 30px rgba(0, 0, 0, 0.15);
+    color: #FFF;
+}
+H1 {
+    text-shadow:
+      1px 1px 1px silver,
+      -1px 1px 1px silver;
+    color: red;
+    transition: all .5s;
+  }
