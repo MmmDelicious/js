@@ -1,12 +1,17 @@
 
-
+let M = 'dekterev'.length
+let K = 'yn'.length
+let n = 'dekterevynolegovi4'.length
 let sum = []
+let finalSum = []
 let result = []
 let znam = 1
-let a = [1,4,5,6]
+let a = [0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9,1.0]
+let b = [0.2*n,0.3*M,0.5*K,0.6*n,0.7*M,K,0.8*n,1.2*K,1.3*M,n]
 let N = a.length;
 for(let k = 0; k < a.length; k++){              
     sum[k] = 0
+    finalSum[k] = 0
 }   
 
 
@@ -26,7 +31,7 @@ for(let k = 0; k < a.length; k++){
 
 
 for(let i = 0; i < N; i++){
-    console.log(i)
+    
     let s1 = []
     let s2 = []
     let result = []
@@ -34,11 +39,12 @@ for(let i = 0; i < N; i++){
         if(j == 0 ){
             for(let h = 0; h < N ; h++){
                 if(h != i){
-                znam *= a[i] - a[h]
+                znam *= a[i] - a[h] 
              
                 }
             }
         }
+       
         if(j == 0 && j != i && i!=  j + 1){
            // console.log('1')
              s1 = [-a[j],1]
@@ -77,7 +83,7 @@ for(let m = 0; m < s1.length; m++){
     for(let n = 0; n < s2.length; n++){
        
         result[n + m] += s1[m] * s2[n] 
-       //2[n],i,j)
+
         sum[n + m] += s1[m] * s2[n]
 
       
@@ -87,14 +93,14 @@ for(let m = 0; m < s1.length; m++){
 //console.log(result,j)
 
 for(let k = 0; k < sum.length; k++){      
+   
+    sum[k] =  result[k] / znam * b[i];
     
-    sum[k] =  result[k] /znam;
-  
 }   
+ 
 
-    
 
-let currentResult = [...s1]
+let currentResult = s1
 s1 = result
 result = currentResult
 
@@ -103,9 +109,39 @@ result = currentResult
 
 
 }
+for(let k = 0; k < sum.length; k++){      
+   
+    finalSum[k] += sum[k]
+    
+}   
+
 console.log(znam)
 console.log(s1)
 console.log(sum)
+console.log(finalSum)
 znam = 1
 
 }
+
+for(let i = 0; i < finalSum.length; i++){
+   
+    
+    let div = document.createElement('otvet1')
+    if(i == 0)
+    div.innerHTML += 'Спайс  <br>'
+    if(finalSum[i + 1] < 0 && i != finalSum.length - 1){div.innerHTML += `${finalSum[i].toFixed(2)}x^${i} `}
+    
+    else if(finalSum[i + 1] > 0 && i != finalSum.length - 1){div.innerHTML += `${finalSum[i].toFixed(2)}x^${i} +`}
+    
+   
+    else if(i == finalSum.length - 1 && finalSum[i] <= 0){div.innerHTML += `${finalSum[i].toFixed(2)}x^${i}<br><br><br><br>`}
+
+    div.className += 'otvet1'
+    div.style.fontSize = '28px';
+    div.style.fontStyle = 'italic';
+    document.body.append(div)
+
+  
+}
+
+

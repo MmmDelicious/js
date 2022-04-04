@@ -1,0 +1,22 @@
+body{
+    margin: 0;
+  
+    display: flex;
+    min-height: 100vh;
+}
+
+
+
+.canvas{
+    margin: auto;
+    background: rgb(194, 167, 135);
+ width: 1000px;
+ height: 700px;
+}
+
+button{
+    width: 100px;
+    height: 100px;
+    background:rgb(192, 149, 96);
+    border-radius: 20%;
+}
